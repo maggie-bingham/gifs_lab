@@ -1,0 +1,11 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <%= link_to "GIFter", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav pull-right list-style-none list-inline">
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
