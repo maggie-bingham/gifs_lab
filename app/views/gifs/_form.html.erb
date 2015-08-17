@@ -1,15 +1,13 @@
-  <div class="modal-body">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12">
-          <%= bootstrap_form_for(@gif, remote: true) do |f| %>
-            <%= f.url_field :url %>
-            <h6><em>or</em></h6>
-            <%= f.attachment_field :file, direct: true %>
-            <br>
-            <%= f.submit "Create", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= bootstrap_form_for(@gif, remote: true) do |f| %>
+        <%= f.url_field :url %>
+        <h6><em>or</em></h6>
+        <%= f.attachment_field :file, direct: true %>
+        <br>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
+</div>

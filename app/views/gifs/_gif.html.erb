@@ -1,10 +1,10 @@
-<% gifs.each_slice(4) do |row| %>
+<% @gifs.each_slice(4) do |row| %>
   <div class="row">
     <% row.each do |gif| %>
       <div class="col-xs-6 col-sm-3">
         <%= link_to gif_path(:id => gif.id), :remote => true, "data-toggle" => "modal", "data-target" => "#gif-#{gif.id}-modal" do %>
           <div class="gif-<%=gif.id%> gif">
-            <img src="<%=gif.url%>" class="img-responsive" alt="No match"/>
+            <img src="<%=gif.url%>" class="img-responsive" alt="No GIF"/>
           </div>
         <% end %>
       </div>

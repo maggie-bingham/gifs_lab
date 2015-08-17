@@ -32,8 +32,9 @@ end
   # POST /gifs
   # POST /gifs.json
   def create
+    @gifs = Gif.all
     @gif = Gif.new(gif_params)
-    @gif.user = @current_user
+    @gif.user = current_user
     respond_to do |format|
       if @gif.save
         format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
