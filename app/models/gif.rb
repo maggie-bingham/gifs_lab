@@ -6,6 +6,9 @@ class Gif < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
-  validates :gif, format: { with: /\.gif\z/, message: "File must be a gif, must end with .gif" }
+  attachment  :file
+
+  validates :url, format: { with: /\.gif\z/, message: "File must be a gif, must end with .gif" }, :allow_blank => true
+  validates_uniqueness_of :url, :allow_blank => true
 
 end

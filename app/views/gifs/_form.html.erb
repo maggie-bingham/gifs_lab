@@ -1,27 +1,15 @@
-<div class="modal-dialog">
-<%= form_for(@gif, :remote => true) do |f| %>
-  <% if @gif.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gif.errors.count, "error") %> prohibited this link from being saved:</h2>
-
-      <ul>
-      <% @gif.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= bootstrap_form_for(@gif, remote: true) do |f| %>
+            <%= f.url_field :url %>
+            <h6><em>or</em></h6>
+            <%= f.attachment_field :file, direct: true %>
+            <br>
+            <%= f.submit "Create", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div>

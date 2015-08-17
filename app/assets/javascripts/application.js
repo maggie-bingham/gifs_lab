@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require refile
 //= require turbolinks
 //= require_tree .

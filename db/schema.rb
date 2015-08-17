@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814173837) do
+ActiveRecord::Schema.define(version: 20150817142525) do
 
   create_table "gifs", force: :cascade do |t|
     t.string   "url"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150814173837) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "vote_total",  default: 0
+    t.string   "file_id"
   end
 
   create_table "taggings", force: :cascade do |t|
