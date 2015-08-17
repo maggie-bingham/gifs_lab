@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>Image:</strong><%= @gif.url %></p>
+<p> <%= image_tag(@gif.url) %></p>
+<p> URL: <%= @gif.url %> </p>
+<p> Created at: <%= @gif.created_at.strftime('%B %d, %Y') %>
+
+<%= link_to 'Edit', edit_gif_path(@gif) %> |
+<%= link_to 'Back', gifs_path %>
