@@ -4,17 +4,20 @@
   <%= render :partial => 'header1' %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
 
 <h1>GIFs</h1>
 
 <div class="container">
   <div class="row col-md-9">
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3" >
     <% if user_signed_in? %>
-      <%= link_to "New Gif", new_gif_path(:format => :htm), :id => "new_gif_modal", :class => "btn btn-primary btn-lg", :remote => true, "data-toggle" => "modal", "data-target" => "#newGif" %>
+      <%= link_to "New Gif", new_gif_path, :id => "new_gif_modal", :class => "btn btn-info btn-lg", :remote => true, "data-toggle" => "modal", "data-target" => "#newGif" %>
     <% end %>
     <%= render :partial => 'gifs/form', :layout => 'shared/modal', :locals => {:title => "New GIF", :id => "newGif"} %>
   </div>
+</div>
+<br>
+<div id="gifs-list" class="row">
+  <%= render :partial => 'gifs/gif' %>
 </div>

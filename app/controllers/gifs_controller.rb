@@ -21,7 +21,7 @@ end
     @gif = Gif.new
     respond_to do |format|
       format.htmml {}
-      format.htm {layout false}
+      format.js {}
     end
   end
 
@@ -32,8 +32,9 @@ end
   # POST /gifs
   # POST /gifs.json
   def create
+    @gifs = Gif.all
     @gif = Gif.new(gif_params)
-    @gif.user_id = current_user_id
+    @gif.user = current_user
     respond_to do |format|
       if @gif.save
         format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
@@ -79,6 +80,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url, :user_id, :title, :description)
+      params.require(:gif).permit(:url, :user_id, :title, :description, :file)
     end
 end

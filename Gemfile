@@ -18,6 +18,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.5.2'
 gem 'kaminari', '~> 0.16.3'
 gem 'faker', '~> 1.4.3'
+gem "mini_magick"
+gem "refile", require: ["refile/rails", "refile/image_processing"]
+gem 'refile-postgres'
+gem 'remotipart', '~> 1.2.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
