@@ -22,6 +22,8 @@ gem "mini_magick"
 gem "refile", require: ["refile/rails", "refile/image_processing"]
 gem 'refile-postgres'
 gem 'remotipart', '~> 1.2.1'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'shoulda', '~> 3.5.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

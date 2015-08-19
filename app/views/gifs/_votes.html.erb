@@ -1,0 +1,17 @@
+<div class ="img-responsive">
+  <div row =" gif-votes">
+    <div class="like">
+    <% if user_signed_in? && !current_user.voted_up_for?(gif) %>
+      <%= link_to "Like", upvote_path(:id => gif.id), :remote => true, :method => :post %>
+    <% end %>
+    </div>
+    <div class ="gif-score">
+      <h4><%= gif.cached_votes_score%></h4>
+    </div>
+    <div class="gif-dislikes">
+    <% if user_signed_in? && !current_user.voted_down_for?(gif) %>
+      <%= link_to "Dislike", downvote_path(:id => gif.id), :remote => true, :method => :post %>
+    <% end %>
+    </div>
+  </div>
+</div>

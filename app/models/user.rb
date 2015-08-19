@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
-  
+  acts_as_voter
+
 end

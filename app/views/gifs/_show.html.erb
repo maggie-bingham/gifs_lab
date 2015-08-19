@@ -6,3 +6,6 @@
   <p><strong>Submitted by: </strong><%= gif.user.email %>, <em><%= time_ago_in_words(gif.created_at) %> ago</em></p>
   <p><strong>Source: </strong><%= link_to gif.url, gif.url %></p>
 </div>
+<div class="vote-<%=gif.id%> vote">
+  <%=render :partial => 'gifs/votes', :remote => true, :locals => {:gif => gif} %>
+</div>

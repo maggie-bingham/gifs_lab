@@ -1,19 +1,33 @@
 class GifsController < ApplicationController
-  before_action :set_gif, only: [:show, :edit, :update, :destroy]
+  before_action :set_gif, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.order("vote_total DESC")
-    @gif = Gif.new
+    if params[:tag]
+      @gifs = Tag.tagged_with(params[:tag])
+      @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    else
+      @gifs = Gif.order("vote_total DESC")
+      @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    end
   end
 
   # GET /gifs/1
   # GET /gifs/1.json
   def show
-  respond_to do |format|
-  format.js{}
-end
+    respond_to do |format|
+    format.js{}
+    end
   end
 
   # GET /gifs/new
@@ -69,6 +83,22 @@ end
     respond_to do |format|
       format.html { redirect_to gifs_url, notice: 'Gif was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+  current_user.likes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
+  end
+
+  def downvote
+  current_user.dislikes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
     end
   end
 
